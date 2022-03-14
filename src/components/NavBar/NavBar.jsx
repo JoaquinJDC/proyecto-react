@@ -1,10 +1,23 @@
 import React from 'react'
+import CartWidjet from '../CartWidjet'
+
+
+
 
 function NavBar() {
   return (
+    
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    
+      <img src="https://images.sk-static.com/images/media/img/col6/20190925-165829-291369.jpg" alt="" width="80" height="80" class="d-inline-block align-text-top"/>
+      
+    
+  
+      
   <div class="container-fluid">
+    
     <a class="navbar-brand" href="#">Valhalla </a>
+    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -30,9 +43,14 @@ function NavBar() {
         </li>
       </ul>
       
+      <a class="navbar-brand" href="#">
+        <CartWidjet/>
+    </a>
+      
     </div>
   </div>
 </nav>
+
   )
 }
 
