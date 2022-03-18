@@ -1,18 +1,10 @@
-import { useState } from "react"
+import React from 'react'
+import ItemCount from '../components/ItemCount'
 
-function ItemListContainer({greeting, titulo}) {
-    const [ count, setCount ] = useState ( 0 )
-const manejarcount =()=>{
-    setCount( count + 1 )
-
+export default function ItemListContainer() {
+  return (
+    <div>ItemListContainer
+        <ItemCount/>
+    </div>
+  )
 }
-    return(
-        <div>
-            {greeting}<hr />
-            {}
-            <label >{count}</label><br/>
-            <button onClick={manejarcount}>click</button>
-        </div>
-    )
-}
-export default ItemListContainer
