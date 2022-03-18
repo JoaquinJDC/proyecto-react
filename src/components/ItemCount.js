@@ -30,12 +30,12 @@ import { useState } from 'react'
 
                 <button
                  onClick={() => AgregarProducto(+1)}
-                 disabled={stock === cantidad}>+
+                 disabled={stock === cantidad}>+ 
                 </button>
 
                 <button
                  onClick={() => Anadir (stock)}
-                 disabled={stock === 0 }>añadir
+                 >añadir
                 </button>
                 
             </div>
