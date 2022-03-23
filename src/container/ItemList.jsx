@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ListaDeProductos } from '../data/data';
 import Item from './Item';
+import './ContainerStyles/ListaDeProducto.css'
 
 
 const ItemList = () => {
@@ -41,7 +42,7 @@ const ItemList = () => {
               producto.map((producto) => {
                 
                 return (
-                  <div key={producto.id}>
+                  <div className='producto' key={producto.id}>
                     <Item
                       nombre={producto.nombre}
                       imagen={producto.imagen}
