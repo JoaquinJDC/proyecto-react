@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import ItemDetail from "../../components/ItemDetail/ItemDetail"
-
 import { getFetch } from "../../data/data"
 import React from "react"
 function ItemDetailContainer() {

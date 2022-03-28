@@ -2,6 +2,7 @@ export const ListaDeProductos = [
 {
 
     nombre: 'Pizza Mozarella',
+    categoria:'Pizza',
     precio: 480,
     imagen:
       'https://tomassopizzas.com.ar/wp-content/uploads/2021/01/Muzza_caliente-1.png',
@@ -10,6 +11,7 @@ export const ListaDeProductos = [
   },
   {
     nombre: 'Pizza Fugazzeta',
+    categoria:'Pizza',
     precio: 590,
     imagen:
       'https://tomassopizzas.com.ar/wp-content/uploads/2020/06/Fugazzetav2-Baja-Web.jpg',
@@ -18,6 +20,7 @@ export const ListaDeProductos = [
   },
   {
     nombre: 'Pizza calabresa',
+    categoria:'Pizza',
     precio: 700,
     imagen:'https://tomassopizzas.com.ar/wp-content/uploads/2019/12/Calabresa-Baja-Web.jpg' ,
      
@@ -26,6 +29,7 @@ export const ListaDeProductos = [
   },
   {
     nombre: 'Pizza Doble Muzza',
+    categoria:'Pizza',
     precio: 610,
     imagen:'https://tomassopizzas.com.ar/wp-content/uploads/2021/01/DobleMuzza_caliente-copia.png' ,
      
@@ -34,6 +38,7 @@ export const ListaDeProductos = [
   },
   {
     nombre: 'Pizza Napolitana',
+    categoria:'Pizza',
     precio: 660,
     imagen:'https://tomassopizzas.com.ar/wp-content/uploads/2019/12/Napolitana-Baja-Web.jpg' ,
      
@@ -42,6 +47,7 @@ export const ListaDeProductos = [
   },
   {
     nombre: 'Pizza Rucula',
+    categoria:'Pizza',
     precio: 710,
     imagen:'https://tomassopizzas.com.ar/wp-content/uploads/2019/12/Rucula-Baja-Web.jpg' ,
      
@@ -50,6 +56,7 @@ export const ListaDeProductos = [
   },
   {
     nombre: 'Pizza Cuatro queso',
+    categoria:'Pizza',
     precio: 770,
     imagen:'https://tomassopizzas.com.ar/wp-content/uploads/2020/05/CuatroQuesos-Baja-Web.jpg' ,
      
@@ -58,6 +65,7 @@ export const ListaDeProductos = [
   },
   {
     nombre: 'Pizza Jamon',
+    categoria:'Pizza',
     precio: 770,
     imagen:'http://tomassopizzas.com.ar/wp-content/uploads/2019/12/Jamon-Baja-Web.jpg' ,
      
@@ -66,11 +74,23 @@ export const ListaDeProductos = [
   },
   {
     nombre: 'Pizza Jamon y Morron',
+    categoria:'Pizza',
     precio: 770,
     imagen:'http://tomassopizzas.com.ar/wp-content/uploads/2021/01/JamonyMorron-Baja-Web_plus.jpg' ,
      
     cantidad: 30,
     id: 9,
+    
+    
+  },
+  {
+    nombre: 'Empanada',
+    categoria: 'Empanada',
+    precio: 770,
+    imagen:'http://tomassopizzas.com.ar/wp-content/uploads/2019/12/Jamon-Baja-Web.jpg' ,
+     
+    cantidad: 30,
+    id: 8,
   },
 ];
 
@@ -84,3 +104,4 @@ export const getFetch = new Promise ((resolve, reject) => {
     reject ('400 not found')
 }
 })
+

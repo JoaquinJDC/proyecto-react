@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import CartWidjet from '../CartWidjet'
 
 
@@ -23,29 +24,28 @@ function NavBar() {
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pizza</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Empanadas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Hamburguesa</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Locales</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contacto</a>
-        </li>
-      </ul>
-      
-      <a class="navbar-brand" href="#">
+      <NavLink className="nav-link" to=''>
+        Inicio
+        </NavLink>
+        <NavLink className="nav-link" to='/categoria/pizza'>
+        Pizza
+        </NavLink>
+        <NavLink className="nav-link" to='/categoria/empanadas'>
+        Empanadas
+        </NavLink>
+        <NavLink className="nav-link" to='/categoria/hamburguesa'>
+        Hamburguesa
+        </NavLink>
+        <NavLink className="nav-link" to=''>
+        Locales
+        </NavLink>
+        <NavLink className="nav-link" to=''>
+        contacto
+        </NavLink>
+      </ul> 
+      <NavLink to='cart'>
         <CartWidjet/>
-    </a>
+        </NavLink>
       
     </div>
   </div>

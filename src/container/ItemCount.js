@@ -1,4 +1,5 @@
 import { useState } from 'react'
+
 import './ContainerStyles/Contador.css'
 
 const ItemCount = ({ initial, cantidad, Anadir }) => {
@@ -6,6 +7,7 @@ const ItemCount = ({ initial, cantidad, Anadir }) => {
     
     const ModificarProducto =(num)=> {
         setStock( stock + num )
+        
     }
 
 
@@ -32,6 +34,10 @@ const ItemCount = ({ initial, cantidad, Anadir }) => {
                  onClick={() => Anadir (stock)}
                  >añadir
                 </button>
+
+               
+                
+                
         </div>
         )
     }

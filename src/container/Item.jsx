@@ -2,7 +2,7 @@ import React from 'react';
 import ItemCount from './ItemCount';
 
 
-const Item = ({ nombre, imagen, precio, id, cantidad }) => {
+const Item = ({ nombre, imagen, categoria, precio, id, cantidad }) => {
   const Anadir = (stock) => {
     alert(`Has agregado ${stock} productos al carrito!`);
   };
@@ -10,7 +10,7 @@ const Item = ({ nombre, imagen, precio, id, cantidad }) => {
   return (
     <article >
       <img  src={imagen} alt="" />
-
+      <h6 >{categoria}</h6>
       <h3 >{nombre}</h3>
       <span >${precio}</span>
 
