@@ -12,29 +12,14 @@ const ItemList = () => {
 
 
 
-  const getProducto = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(ListaDeProductos);
-    }, 2000);
-  });
-
-
-  const ProductosLista = async () => {
-    try {
-      const result = await getProducto;
-      setProductos(result);
-    } catch (error) {
-      console.log(error);
-      alert('No hay productos');
-    }
-  };
+ 
   const {categoriaId} = useParams()
   console.log(categoriaId)
   
   useEffect (() => {
     if(categoriaId){
     getFetch
-    .then(resp => setProductos(resp))
+    .then(resp => setProductos(resp.filter(Item.categoria === categoriaId)))
     .catch(err => console.log(err))
   }else{
     getFetch
