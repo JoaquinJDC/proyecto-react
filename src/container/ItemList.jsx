@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getFetch,ListaDeProductos } from '../data/data';
+import { getFetch,productos } from '../data/data';
 import Item from './Item';
 import './ContainerStyles/ListaDeProducto.css'
 import { Link, NavLink, useParams } from 'react-router-dom';
@@ -8,18 +8,18 @@ import { Link, NavLink, useParams } from 'react-router-dom';
 
 const ItemList = () => {
   
-  const [producto, setProductos] = useState([]);
+  const [productos, setProductos] = useState([]);
 
 
 
  
-  const {categoriaId} = useParams()
+  const { categoriaId } = useParams()
   console.log(categoriaId)
-  
-  useEffect (() => {
-    if(categoriaId){
+  useEffect(() => {
+    
+    if(categoriaId) {
     getFetch
-    .then(resp => setProductos(resp.filter(Item.categoria === categoriaId)))
+    .then(resp => setProductos(resp.filter(Item => Item.categoria === categoriaId)))
     .catch(err => console.log(err))
   }else{
     getFetch
@@ -32,24 +32,24 @@ const ItemList = () => {
     <div>
       {
       
-        producto.length ? ( 
+        productos.length ? ( 
           <>
             {
              
-              producto.map((producto) => {
+              productos.map((productos) => {
                 
                 return (
-                  <div className='producto' key={producto.id}>
+                  <div className='producto' key={productos.id}>
                     <Item
                       
-                      nombre={producto.nombre}
-                      categoria={producto.categoria}
-                      imagen={producto.imagen}
-                      precio={producto.precio}
-                      cantidad={producto.cantidad}
+                      nombre={productos.nombre}
+                      categoria={productos.categoria}
+                      imagen={productos.imagen}
+                      precio={productos.precio}
+                      cantidad={productos.cantidad}
                     
                     />
-                 <Link to = {`/detalle/${producto.id}`}>
+                 <Link to = {`/detalle/${productos.id}`}>
                 <button>
                     detalle
                 </button>

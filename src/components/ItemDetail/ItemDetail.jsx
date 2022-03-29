@@ -1,12 +1,12 @@
 import React from 'react'
 
-function ItemDetail({Productos}) {
+function ItemDetail({productos}) {
   return (
     <>
-    <div>{Productos.nombre}</div>
-    <div>{Productos.categoria}</div>
-    <div>{Productos.precio}</div>
-    <div>{Productos.cantidad}</div>
+    <div>{productos.nombre}</div>
+    <div>{productos.categoria}</div>
+    <div>{productos.precio}</div>
+    <div>{productos.cantidad}</div>
 
     </>
   )

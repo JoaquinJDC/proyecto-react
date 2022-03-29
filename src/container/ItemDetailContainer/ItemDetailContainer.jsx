@@ -3,7 +3,7 @@ import ItemDetail from "../../components/ItemDetail/ItemDetail"
 import { getFetch } from "../../data/data"
 import React from "react"
 function ItemDetailContainer() {
-const [Productos, setProductos] = useState({})
+const [productos, setProductos] = useState({})
 
   useEffect (() => {
     getFetch
@@ -13,7 +13,7 @@ const [Productos, setProductos] = useState({})
  
   return (
     <>
-    <ItemDetail Productos={Productos}/>
+    <ItemDetail productos={productos}/>
     </>
   )
 }
