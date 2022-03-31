@@ -13,6 +13,7 @@ const Item = ({ nombre, imagen, categoria, precio, id, cantidad }) => {
       <h6 >{categoria}</h6>
       <h3 >{nombre}</h3>
       <span >${precio}</span>
+      <h6 >{id}</h6>
 
       <ItemCount cantidad={cantidad} Anadir={Anadir} initial={0} />
     </article>

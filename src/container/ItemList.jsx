@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { getFetch,productos } from '../data/data';
+import { getFetch } from '../data/data';
 import Item from './Item';
 import './ContainerStyles/ListaDeProducto.css'
-import { Link, NavLink, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 
 
@@ -26,7 +26,7 @@ const ItemList = () => {
     .then(resp => setProductos(resp))
     .catch(err => console.log(err))
   }
-  }, [])
+  }, [categoriaId])
 
   return (
     <div>
@@ -47,6 +47,7 @@ const ItemList = () => {
                       imagen={productos.imagen}
                       precio={productos.precio}
                       cantidad={productos.cantidad}
+                      id={productos.id}
                     
                     />
                  <Link to = {`/detalle/${productos.id}`}>
