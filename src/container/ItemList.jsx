@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getFetch } from '../data/data';
 import Item from './Item';
-import './ContainerStyles/ListaDeProducto.css'
+import './ContainerStyles/productos.css'
 import { Link, useParams } from 'react-router-dom';
 
 
@@ -43,11 +43,10 @@ const ItemList = () => {
                     <Item
                       
                       nombre={productos.nombre}
-                      categoria={productos.categoria}
                       imagen={productos.imagen}
                       precio={productos.precio}
                       cantidad={productos.cantidad}
-                      id={productos.id}
+                      
                     
                     />
                  <Link to = {`/detalle/${productos.id}`}>

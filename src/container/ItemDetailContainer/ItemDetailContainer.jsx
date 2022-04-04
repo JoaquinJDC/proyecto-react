@@ -3,6 +3,7 @@ import ItemDetail from "../../components/ItemDetail/ItemDetail"
 import { getFetch } from "../../data/data"
 import React from "react"
 import { useParams } from "react-router-dom"
+import Intercambiabilidad from "../../components/Intecambialidad"
 function ItemDetailContainer() {
 const [productos, setProductos] = useState({})
 
@@ -17,9 +18,10 @@ console.log(detalleId)
  
   return (
     <>
+   
     <ItemDetail productos={productos}/>
     </>
   )
 }
 
-export default ItemDetailContainer
+export default ItemDetailContainer  

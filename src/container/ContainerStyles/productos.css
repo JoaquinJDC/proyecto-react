@@ -2,5 +2,10 @@
     float: left;
     margin: 30px 60px 0;
     width: 500px;
+   
 
+}
+.imagen{
+    max-width: 250px;
+    max-height: 250px;
 }
