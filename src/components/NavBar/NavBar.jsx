@@ -43,7 +43,7 @@ function NavBar() {
         contacto
         </NavLink>
       </ul> 
-      <NavLink to='cart'>
+      <NavLink to='Cart'>
         <CartWidjet/>
         </NavLink>
       
