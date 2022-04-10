@@ -33,9 +33,6 @@ function NavBar() {
         <NavLink className="nav-link" to='/categoria/empanadas'>
         Empanadas
         </NavLink>
-        <NavLink className="nav-link" to='/categoria/hamburguesa'>
-        Hamburguesa
-        </NavLink>
         <NavLink className="nav-link" to=''>
         Locales
         </NavLink>

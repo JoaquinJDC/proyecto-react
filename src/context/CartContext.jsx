@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { productos } from "../data/data";
+
 
  const CartContext = createContext([]) 
 
@@ -26,13 +26,40 @@ function CartContextProvider({children}){
             )
         }else{
             setCartList([...cartList, {...item, cantidad:item.cantidad}])
-        }
+        }}
 
+    
 
+const deleteItemToCart = (item) => {
+    const inCart = cartList.find(
+        (itemInCart) => itemInCart.id === item.id)
 
+        if (inCart.cantidad === 1) {
+            setCartList(
+                cartList.filter((itemInCart) => itemInCart.id !== item.id)
+
+            )
+            
+            }else{
+                setCartList((itemInCart) =>{
+                    if (itemInCart.id === item.id) {
+                        return{...inCart, cantidad: inCart.cantidad -1}
+                    }else return itemInCart
+                })
+            }
+        
 
 
     }
+            
+        
+                
+                
+
+        
+        
+
+  
     const removeCart = () =>{
         setCartList([])
     }
@@ -43,6 +70,7 @@ return(
     <CartContext.Provider value={{
         cartList,
         addToCart,
+        deleteItemToCart,
         removeCart
 
     }}>
