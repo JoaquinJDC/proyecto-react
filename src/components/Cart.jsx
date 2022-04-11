@@ -1,5 +1,5 @@
 import { useCartContext } from "../context/CartContext";
-
+import '../container/ContainerStyles/cart.css'
 
 function Cart(){
 
@@ -9,9 +9,9 @@ function Cart(){
         <div>
             
 {cartList.map(productos => <li key = {productos.id} 
->nombre: {productos.nombre}
-<hr></hr>
-cantidad: {productos.cantidad}
+><img className="icon" src={productos.imagen} />
+{productos.nombre} <h> - </h>
+Cantidad: {productos.cantidad}
 
 
 </li>)}
