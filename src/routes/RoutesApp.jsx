@@ -1,11 +1,11 @@
-import { useState } from 'react'
+
 import NavBar from '../components/NavBar/NavBar'
 import ItemListContainer from '../container/ItemListContainer'
 import { BrowserRouter, Routes,Route } from 'react-router-dom'
 import React from 'react'
 import ItemDetailContainer from '../container/ItemDetailContainer/ItemDetailContainer'
 import Cart from '../components/Cart'
-import CartContextProvider, {CartContext} from '../context/CartContext'
+import CartContextProvider from '../context/CartContext'
 
 
 export default function RoutesApp() {

@@ -1,7 +1,6 @@
 
 import ItemCount from '../../container/ItemCount'
 import { useCartContext } from '../../context/CartContext';
-
 import Intercambiabilidad from '../Intecambialidad';
 
   
