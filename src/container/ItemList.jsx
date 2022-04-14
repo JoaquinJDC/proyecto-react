@@ -3,6 +3,8 @@ import { getFetch } from '../data/data';
 import Item from './Item';
 import './ContainerStyles/productos.css'
 import { Link, useParams } from 'react-router-dom';
+import { getFirestore,doc,getDocs,collection,where,query } from 'firebase/firestore'
+
 
 
 
@@ -16,16 +18,13 @@ const ItemList = () => {
   const { categoriaId } = useParams()
   console.log(categoriaId)
   useEffect(() => {
+    const querydb = getFirestore()
+    const queryCollection = collection(querydb, 'productos')
+    const queryFilter = query(queryCollection, where ('categoria', '==', categoriaId))
+    getDocs(queryFilter)
+    .then(resp=>setProductos(resp.docs.map(item=> ({id: item.id, ...item.data()}))))
     
-    if(categoriaId) {
-    getFetch
-    .then(resp => setProductos(resp.filter(Item => Item.categoria === categoriaId)))
-    .catch(err => console.log(err))
-  }else{
-    getFetch
-    .then(resp => setProductos(resp))
-    .catch(err => console.log(err))
-  }
+   
   }, [categoriaId])
 
   return (
