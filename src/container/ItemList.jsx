@@ -40,7 +40,7 @@ const ItemList = () => {
                 return (
                   <div className='producto' key={productos.id}>
                     <Item
-                      
+
                       nombre={productos.nombre}
                       imagen={productos.imagen}
                       precio={productos.precio}
