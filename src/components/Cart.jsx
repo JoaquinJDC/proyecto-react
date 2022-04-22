@@ -1,8 +1,17 @@
+
+import { useState } from 'react'
 import { useCartContext } from "../context/CartContext";
 import '../container/ContainerStyles/cart.css'
+import {addDoc, collection, getFirestore} from 'firebase/firestore'
 
+ 
 
 function Cart(){
+  const [datosFormulario, traerDatosFormulario] = useState({
+    nombre:'',
+    email:'',
+    telefono:''
+  })
 
     const {cartList,removeCart,deleteItemToCart,add,total} = useCartContext()
 
@@ -12,30 +21,59 @@ function Cart(){
    
       let orden = {}
         
-      orden.buyer = {nombre: 'Joaquin', email: 'j@gmail.com', phone: '02324469313'}
+      orden.buyer = {nombre: {}, email: 'j@gmail.com', telefono: '02324469313'}
       orden.total = {total}
 
         orden.items = cartList.map(item => {
           const id = item.id
+          const cantidad = item.cantidad
           const nombre = item.nombre
           const precio = item.precio * item.cantidad
+          
         
-          return {id,nombre,precio}
+          return {id,nombre,precio,cantidad}
           
         })
       
         console.log(orden)
+        const db = getFirestore()
+        const queryCollection = collection(db,'orders')
+        addDoc(queryCollection,orden)
 
     }
   
+const handleChange=(event)=>{
+  traerDatosFormulario({
+    ...datosFormulario,
+    [event.target.nombre]: event.target.value
+    
+  })
+}
+
+    console.log(datosFormulario)
     return(
         
         <div>
             <h2>Tu Carrito</h2>
+         <form onSubmit={generarOrden}>
+           
+           <input  name='nombre' type="text" placeholder='Nombre'
+            onChange={handleChange}
+         />
+           <input  name='email' type="text" placeholder="Email"
+             value={datosFormulario.email}/>
+           <input  name='telefono' type="text" placeholder="Telefono"
+             onChange={handleChange} 
+              value={datosFormulario.telefono}/>
+           <button className='btn btn-outline-success'>generar Orden</button>
+         
+         </form>
+  
             {cartList.length === 0 ? (
             <p>Tu carrito esta vacio</p>
           ) : (
             <div>
+             
               {cartList.map((item) => (
                 <cart key={item.id} item={item} />
               ))}
@@ -43,6 +81,7 @@ function Cart(){
           )}
           <div>
       {cartList.lenght}
+      
 </div>
 
 {cartList.map(item => <li key = {item.id} 
@@ -56,7 +95,7 @@ precio: {item.precio}
 </li>)}
 
 <button className='btn btn-outline-success' onClick={removeCart}> Vaciar Carrito</button>
-<button className='btn btn-outline-success' onClick={generarOrden}>generar Orden</button>
+
 <h2>Total: {total}</h2>
         </div>
     )

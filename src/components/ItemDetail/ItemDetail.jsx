@@ -1,8 +1,8 @@
 
-import { useEffect, useState } from 'react';
+import { react } from 'react';
 import ItemCount from '../../container/ItemCount'
 import { useCartContext } from '../../context/CartContext';
-import Intercambiabilidad from '../Intecambialidad';
+
 
 
 
@@ -29,7 +29,7 @@ function ItemDetail({productos}) {
     <div>${productos.precio}</div>
     <div>Cantidad={productos.cantidad}</div>
     <ItemCount cantidad={productos.cantidad} Anadir={Anadir} initial={0}  />
-    <Intercambiabilidad/>
+   
     </>
   )
 
