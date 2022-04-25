@@ -45,7 +45,7 @@ function Cart(){
 const handleChange=(event)=>{
   traerDatosFormulario({
     ...datosFormulario,
-    [event.target.nombre]: event.target.value
+    [event.target.name]: event.target.value
     
   })
 }
@@ -57,7 +57,9 @@ const handleChange=(event)=>{
             <h2>Tu Carrito</h2>
          <form onSubmit={generarOrden}>
            
+           
            <input  name='nombre' type="text" placeholder='Nombre'
+            value={datosFormulario.email}
             onChange={handleChange}
          />
            <input  name='email' type="text" placeholder="Email"
