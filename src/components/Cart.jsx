@@ -21,7 +21,7 @@ function Cart(){
    
       let orden = {}
         
-      orden.buyer = {nombre: {}, email: 'j@gmail.com', telefono: '02324469313'}
+      orden.buyer = {Datos:{datosFormulario}}
       orden.total = {total}
 
         orden.items = cartList.map(item => {
@@ -59,14 +59,15 @@ const handleChange=(event)=>{
            
            
            <input  name='nombre' type="text" placeholder='Nombre'
-            value={datosFormulario.email}
+        
             onChange={handleChange}
          />
            <input  name='email' type="text" placeholder="Email"
-             value={datosFormulario.email}/>
+           onChange={handleChange} 
+            />
            <input  name='telefono' type="text" placeholder="Telefono"
              onChange={handleChange} 
-              value={datosFormulario.telefono}/>
+            />
            <button className='btn btn-outline-success'>generar Orden</button>
          
          </form>
