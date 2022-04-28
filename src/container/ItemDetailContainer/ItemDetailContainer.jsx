@@ -6,19 +6,19 @@ import { useParams } from "react-router-dom"
 import { getFirestore,doc,getDoc } from 'firebase/firestore'
 
 function ItemDetailContainer() {
-const [productos, setProductos] = useState({})
+const [productos, traerProductos] = useState({})
 
 const {detalleId} = useParams()
-console.log(detalleId)
+
 
 useEffect(() => { 
   const querydb = getFirestore()
   const queryProd = doc(querydb, 'productos',detalleId)
   getDoc(queryProd)
-  .then(resp => setProductos ({ id: resp.id, ...resp.data()}))
+  .then(resp => traerProductos ({ id: resp.id, ...resp.data()}))
 
 },[])
-console.log(productos)
+
  
   return (
     <>

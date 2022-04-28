@@ -1,6 +1,7 @@
 .producto{
-    float: left;
-    margin: 30px 60px 0;
+ display: inline-block;
+   
+    margin: 0 auto;
     width: 500px;
    
 

@@ -10,46 +10,46 @@ export const useCartContext = () => useContext(CartContext)
 
 
 function CartContextProvider({children}){
-    const [cartList, setCartList] = useState([])
+    const [listaCarrito, traerListaCarrito] = useState([])
 
    
-    const addToCart = (item) => {
-      const inCart = cartList.find(
-          (itemInCart) => itemInCart.id === item.id
+    const agregarACarrito = (producto) => {
+      const enCarrito = listaCarrito.find(
+          (productoEnCarrito) => productoEnCarrito.id === producto.id
       )
-        if (inCart) {
-            setCartList(
-                cartList.map((itemInCart) => {
-                    if(itemInCart.id === item.id){
-                        return{...inCart, cantidad: inCart.cantidad + item.cantidad}
-                    } else return itemInCart
+        if (enCarrito) {
+            traerListaCarrito(
+                listaCarrito.map((productoEnCarrito) => {
+                    if(productoEnCarrito.id === producto.id){
+                        return{...enCarrito, cantidad: enCarrito.cantidad + producto.cantidad}
+                    } else return productoEnCarrito
                 })
             )
         }else{
-            setCartList([...cartList, {...item, cantidad:item.cantidad}])
+            traerListaCarrito([...listaCarrito, {...producto, cantidad:producto.cantidad}])
         }}
 
-    const totalprod = cartList?.reduce((previous,current) => previous + current.cantidad,0)
-const total = cartList.reduce((previous,current) => previous + current.cantidad  * current.precio, 0)
-const deleteItemToCart = (item) => {
-    const inCart = cartList.find(
-        (itemInCart) => itemInCart.id === item.id)
+    const totalprod = listaCarrito?.reduce((previous,current) => previous + current.cantidad,0)
+const total = listaCarrito.reduce((previous,current) => previous + current.cantidad  * current.precio, 0)
+const borrarProductoCarrito = (producto) => {
+    const enCarrito = listaCarrito.find(
+        (productoEnCarrito) => productoEnCarrito.id === producto.id)
 
 
 
 
-        if (inCart.cantidad === 1) {
-            setCartList(
-                cartList.filter((itemInCart) => itemInCart.id !== item.id)
+        if (enCarrito.cantidad === 1) {
+            traerListaCarrito(
+                listaCarrito.filter((productoEnCarrito) => productoEnCarrito.id !== producto.id)
 
             )
             
             }else{
-                setCartList(
-                    cartList.map((itemInCart) =>{
-                    if (itemInCart.id === item.id) {
-                        return{...inCart, cantidad: inCart.cantidad -1}
-                    }else return itemInCart
+                traerListaCarrito(
+                    listaCarrito.map((productoEnCarrito) =>{
+                    if (productoEnCarrito.id === producto.id) {
+                        return{...enCarrito, cantidad: enCarrito.cantidad -1}
+                    }else return productoEnCarrito
                 })
                 )
             }
@@ -57,22 +57,22 @@ const deleteItemToCart = (item) => {
 
 
     }
-    const add = (item) => {
-        const inCart = cartList.find(
-            (itemInCart) => itemInCart.id === item.id)
+    const agregar = (producto) => {
+        const enCarrito = listaCarrito.find(
+            (productoEnCarrito) => productoEnCarrito.id === producto.id)
     
-            if (inCart.cantidad === 0) {
-                setCartList(
-                    cartList.filter((itemInCart) => itemInCart.id !== item.id)
+            if (enCarrito.cantidad === 0) {
+                traerListaCarrito(
+                    listaCarrito.filter((productoEnCarrito) => productoEnCarrito.id !== producto.id)
     
                 )
                 
                 }else{
-                    setCartList(
-                        cartList.map((itemInCart) =>{
-                        if (itemInCart.id === item.id) {
-                            return{...inCart, cantidad: inCart.cantidad +1}
-                        }else return itemInCart
+                    traerListaCarrito(
+                        listaCarrito.map((productoEnCarrito) =>{
+                        if (productoEnCarrito.id === producto.id) {
+                            return{...enCarrito, cantidad: enCarrito.cantidad +1}
+                        }else return productoEnCarrito
                     })
                     )
                 }
@@ -88,19 +88,19 @@ const deleteItemToCart = (item) => {
         
 
   
-    const removeCart = () =>{
-        setCartList([])
+    const removerCarrito = () =>{
+        traerListaCarrito([])
     }
 
   
 return(
 
     <CartContext.Provider value={{
-        cartList,
-        addToCart,
-        deleteItemToCart,
-        removeCart,
-        add,
+        listaCarrito,
+        agregarACarrito,
+        borrarProductoCarrito,
+        removerCarrito,
+        agregar,
         total,
         totalprod
 

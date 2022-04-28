@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { getFetch } from '../data/data';
+
 import Item from './Item';
 import './ContainerStyles/productos.css'
 import { Link, useParams } from 'react-router-dom';
-import { getFirestore,doc,getDocs,collection,where,query } from 'firebase/firestore'
-
+import { getFirestore,getDocs,collection,where,query } from 'firebase/firestore'
+import { Button } from 'react-bootstrap';
 
 
 
 const ItemList = () => {
   
-  const [productos, setProductos] = useState([]);
+  const [productos, traerProductos] = useState([]);
 
 
 
  
   const { categoriaId } = useParams()
-  console.log(categoriaId)
+
   useEffect(() => {
     const querydb = getFirestore()
     const queryCollection = collection(querydb, 'productos')
     const queryFilter = query(queryCollection, where ('categoria', '==', categoriaId))
     getDocs(queryFilter)
-    .then(resp=>setProductos(resp.docs.map(item=> ({id: item.id, ...item.data()}))))
+    .then(resp=>traerProductos(resp.docs.map(item=> ({id: item.id, ...item.data()}))))
     
    
   }, [categoriaId])
@@ -38,6 +38,7 @@ const ItemList = () => {
               productos.map((productos) => {
                 
                 return (
+                  
                   <div className='producto' key={productos.id}>
                     <Item
 
@@ -49,9 +50,7 @@ const ItemList = () => {
                     
                     />
                  <Link to = {`/detalle/${productos.id}`}>
-                <button>
-                    detalle
-                </button>
+                <Button variant="dark">Detalle</Button>
                 </Link> 
                  
                   </div>

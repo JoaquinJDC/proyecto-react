@@ -13,7 +13,7 @@ function Cart(){
     telefono:''
   })
 
-    const {cartList,removeCart,deleteItemToCart,add,total} = useCartContext()
+    const {listaCarrito,removerCarrito,borrarProductoCarrito,agregar,total} = useCartContext()
 
     const generarOrden  = (e) =>{
       
@@ -24,7 +24,7 @@ function Cart(){
       orden.buyer = {Datos:{datosFormulario}}
       orden.total = {total}
 
-        orden.items = cartList.map(item => {
+        orden.items = listaCarrito.map(item => {
           const id = item.id
           const cantidad = item.cantidad
           const nombre = item.nombre
@@ -35,7 +35,7 @@ function Cart(){
           
         })
       
-        console.log(orden)
+        
         const db = getFirestore()
         const queryCollection = collection(db,'orders')
         addDoc(queryCollection,orden)
@@ -50,7 +50,7 @@ const handleChange=(event)=>{
   })
 }
 
-    console.log(datosFormulario)
+   
     return(
         
         <div>
@@ -72,32 +72,32 @@ const handleChange=(event)=>{
          
          </form>
   
-            {cartList.length === 0 ? (
+            {listaCarrito.length === 0 ? (
             <p>Tu carrito esta vacio</p>
           ) : (
             <div>
              
-              {cartList.map((item) => (
+              {listaCarrito.map((item) => (
                 <cart key={item.id} item={item} />
               ))}
             </div>
           )}
           <div>
-      {cartList.lenght}
+      {listaCarrito.lenght}
       
 </div>
 
-{cartList.map(item => <li key = {item.id} 
+{listaCarrito.map(item => <li key = {item.id} 
 ><img className="icon" src={item.imagen} />
 {item.nombre} <h> - </h>
 Cantidad: {item.cantidad} <h> - </h>
 precio: {item.precio}
-<button className='btn btn-outline-success' onClick={() => deleteItemToCart(item)}>-</button>
-<button className='btn btn-outline-success' onClick={() => add(item)}>+</button>
+<button className='btn btn-outline-success' onClick={() => borrarProductoCarrito(item)}>-</button>
+<button className='btn btn-outline-success' onClick={() => agregar(item)}>+</button>
 
 </li>)}
 
-<button className='btn btn-outline-success' onClick={removeCart}> Vaciar Carrito</button>
+<button className='btn btn-outline-success' onClick={removerCarrito}> Vaciar Carrito</button>
 
 <h2>Total: {total}</h2>
         </div>

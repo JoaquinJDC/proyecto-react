@@ -13,7 +13,7 @@ function NavBar() {
     <Navbar bg="light" expand="lg">
        <img src="https://images.sk-static.com/images/media/img/col6/20190925-165829-291369.jpg" alt="" width="80" height="80" class="d-inline-block align-text-top"/>
   <Container fluid>
-    <Navbar.Brand href="#">Valhalla</Navbar.Brand>
+    <Navbar.Brand>Valhalla</Navbar.Brand>
     <Navbar.Toggle aria-controls="navbarScroll" />
     <Navbar.Collapse id="navbarScroll">
       <Nav
@@ -30,12 +30,7 @@ function NavBar() {
         <NavLink className="nav-link" to='/categoria/empanadas'>
         Empanadas
         </NavLink>
-        <NavLink className="nav-link" to=''>
-        Locales
-        </NavLink>
-        <NavLink className="nav-link" to=''>
-        contacto
-        </NavLink>
+       
       
   
       </Nav>

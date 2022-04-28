@@ -10,14 +10,14 @@ import { useCartContext } from '../../context/CartContext';
 
 function ItemDetail({productos}) {
 
-  const {addToCart, cartList} = useCartContext()
+  const {agregarACarrito, listaCarrito} = useCartContext()
 
 
   
   function Anadir (stock) {
-    console.log(cartList) 
-    console.log(stock)
-    addToCart({ ...productos, cantidad : stock })
+   
+ 
+    agregarACarrito({ ...productos, cantidad : stock })
     
   };
 

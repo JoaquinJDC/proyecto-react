@@ -1,12 +1,13 @@
 import { useState } from 'react'
 
 import './ContainerStyles/Contador.css'
+import { Button } from 'react-bootstrap';
 
 const ItemCount = ({ initial, cantidad, Anadir }) => {
-    const [stock, setStock] = useState(initial);
+    const [stock, traerStock] = useState(initial);
     
     const ModificarProducto =(num)=> {
-        setStock( stock + num )
+        traerStock( stock + num )
         
     }
 
@@ -17,23 +18,23 @@ const ItemCount = ({ initial, cantidad, Anadir }) => {
                 
               
                 <label >{stock}</label><br/>
-                <button
+                <Button variant='primary'
                  onClick={() => ModificarProducto(-1)}
                 disabled={stock === 0 }>-
                  
-                </button>
+                </Button>
 
-                <button
+                <Button variant='primary'
                  onClick={() => ModificarProducto(+1)}
                  disabled={stock === cantidad}>+ 
-                </button>
+                </Button>
                 
             </div>
             
-            <button
+            <Button variant='success'
                  onClick={() => Anadir (stock)}
                  >añadir
-                </button>
+                </Button>
 
                
                 
