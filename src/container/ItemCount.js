@@ -33,6 +33,7 @@ const ItemCount = ({ initial, cantidad, Anadir }) => {
             
             <Button variant='success'
                  onClick={() => Anadir (stock)}
+                 disabled={stock === 0 }    
                  >añadir
                 </Button>
 

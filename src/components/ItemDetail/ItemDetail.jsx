@@ -1,5 +1,4 @@
 
-import { react } from 'react';
 import ItemCount from '../../container/ItemCount'
 import { useCartContext } from '../../context/CartContext';
 
@@ -10,7 +9,7 @@ import { useCartContext } from '../../context/CartContext';
 
 function ItemDetail({productos}) {
 
-  const {agregarACarrito, listaCarrito} = useCartContext()
+  const {agregarACarrito,} = useCartContext()
 
 
   

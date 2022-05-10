@@ -10,6 +10,7 @@ import Inicio from '../Inicio/Inicio'
 import Footer from '../Inicio/Footer'
 
 
+
 export default function RoutesApp() {
   return (
       <BrowserRouter>
@@ -20,6 +21,7 @@ export default function RoutesApp() {
 <Route path="/detalle/:detalleId" element={<ItemDetailContainer/>}/>
 <Route path="/cart" element={<Cart/>}/>
 <Route path="/categoria/:categoriaId" element={<ItemListContainer/>}/>
+<Route path="/productos" element={<ItemListContainer/>}/>
      
       </Routes>  
       

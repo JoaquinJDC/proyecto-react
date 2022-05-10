@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useCartContext } from "../context/CartContext";
 import '../container/ContainerStyles/cart.css'
 import {addDoc, collection, getFirestore} from 'firebase/firestore'
+import { Link } from 'react-router-dom';
 
  
 
@@ -38,9 +39,15 @@ function Cart(){
         
         const db = getFirestore()
         const queryCollection = collection(db,'orders')
-        addDoc(queryCollection,orden)
+
+         addDoc(queryCollection,orden)
+        .then(({id}) => alert(`Gracias por tu compra : ${id}`))
+        .catch(err => console.log('error'))
+        .finally()
 
     }
+
+    
   
 const handleChange=(event)=>{
   traerDatosFormulario({
@@ -74,7 +81,11 @@ const handleChange=(event)=>{
   
             {listaCarrito.length === 0 ? (
             <p>Tu carrito esta vacio</p>
+            
+            
           ) : (
+
+          
             <div>
              
               {listaCarrito.map((item) => (
@@ -82,6 +93,7 @@ const handleChange=(event)=>{
               ))}
             </div>
           )}
+          
           <div>
       {listaCarrito.lenght}
       
@@ -96,10 +108,14 @@ precio: {item.precio}
 <button className='btn btn-outline-success' onClick={() => agregar(item)}>+</button>
 
 </li>)}
-
+<Link to={"/"}>
+<button className='btn btn-outline-success' onClick={removerCarrito}> Volver al Inicio</button>
+</Link>
 <button className='btn btn-outline-success' onClick={removerCarrito}> Vaciar Carrito</button>
 
 <h2>Total: {total}</h2>
+
+
         </div>
     )
 

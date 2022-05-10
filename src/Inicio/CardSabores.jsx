@@ -1,5 +1,4 @@
-import {react} from 'react'
-import {Card,Button} from 'react-bootstrap'
+import {Card,} from 'react-bootstrap'
 function CardSabores(){
     return(
         <a href=''>

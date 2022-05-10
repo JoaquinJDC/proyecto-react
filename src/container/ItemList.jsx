@@ -14,16 +14,24 @@ const ItemList = () => {
 
 
 
+
  
   const { categoriaId } = useParams()
 
   useEffect(() => {
+    if (categoriaId){
     const querydb = getFirestore()
     const queryCollection = collection(querydb, 'productos')
     const queryFilter = query(queryCollection, where ('categoria', '==', categoriaId))
     getDocs(queryFilter)
     .then(resp=>traerProductos(resp.docs.map(item=> ({id: item.id, ...item.data()}))))
-    
+  }else{
+    const querydb = getFirestore() 
+    const queryCollection = collection (querydb, "productos")
+    getDocs(queryCollection)
+    .then(resp=> traerProductos(  resp.docs.map(item=> ({ id: item.id, ...item.data()})) ))
+  
+  }
    
   }, [categoriaId])
 

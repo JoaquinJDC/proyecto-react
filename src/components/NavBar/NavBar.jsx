@@ -1,5 +1,5 @@
 import React from 'react'
-import {Navbar, Container, Nav, Button, NavDropdown,} from 'react-bootstrap'
+import {Navbar, Container, Nav} from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 import CartWidjet from '../CartWidjet'
 
@@ -31,7 +31,9 @@ function NavBar() {
         Empanadas
         </NavLink>
        
-      
+        <NavLink className="nav-link" to='/productos'>
+        Todos los productos
+        </NavLink>
   
       </Nav>
       <NavLink to='Cart'>
